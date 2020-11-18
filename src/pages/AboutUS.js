@@ -1,9 +1,13 @@
 import React from 'react';
 //Page component
 import AboutSection from '../components/AboutSection'
-const AboutUS=()=>{
-    return(
-     <AboutSection></AboutSection>
+import SevicesSection from '../components/ServicesSection'
+const AboutUS = () => {
+    return (
+        <>
+            <AboutSection />
+            <SevicesSection />
+        </>
     )
-} 
+}
 export default AboutUS;
