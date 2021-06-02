@@ -1,64 +1,58 @@
 import React from 'react';
 import styled from 'styled-components'
-import {About,Description,Hide,Image} from '../styles'
+import { About } from '../styles'
+import Toggle from './Toggle'
+import {AnimateSharedLayout} from 'framer-motion'
+import { reveal } from '../animation';
+import { useScroll } from './useScroll';
 const FaqSection = () => {
+    const [element,controls]=useScroll()
     return (
-      <Faq>
+        <Faq    transition={{ duration: 0.5 }}
+        ref={element}
+        animate={controls}
+        initial="hidden"
+        variants={reveal}>
             <h2>Any Question <span>FAQ</span></h2>
-            <div className="question">
-                <h4>How Do I Start?</h4>
+            <AnimateSharedLayout>
+            <Toggle title='How Do I Start?'>
                 <div className="answer">
                     <p>Lorem Ipsum is simply dummy text.</p>
                     <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the
-                        1500s, when an unknown printer took a galley of type and scrambled it to
-                        make a type specimen book.
-                    </p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Quos libero, rerum, enim nesciunt, a dicta pariatur necessitatibus in veritatis nisi voluptatem!
+                        Autem esse tenetur natus iusto magnam repudiandae ad consequuntur.</p>
                 </div>
-                <div className="faq-line"></div>
-            </div>
-            <div className="question">
-                <h4>Daily Schedula</h4>
+            </Toggle>
+            <Toggle title='Daily Schedula'>
                 <div className="answer">
                     <p>Lorem Ipsum is simply dummy text.</p>
-                    <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the
-                        1500s, when an unknown printer took a galley of type and scrambled it to
-                        make a type specimen book.
-                    </p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Ratione consectetur voluptates quasi. Doloremque natus illum sequi
+                    laboriosam dolorem provident sit molestiae est maxime asperiores sint,
+                   fugit eaque distinctio quibusdam earum?</p>
                 </div>
-                <div className="faq-line"></div>
-            </div>
-            
-            <div className="question">
-                <h4>Differrent Payment Method</h4>
+            </Toggle>
+            <Toggle title='Differrent Payment Method'>
                 <div className="answer">
                     <p>Lorem Ipsum is simply dummy text.</p>
-                    <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the
-                        1500s, when an unknown printer took a galley of type and scrambled it to
-                        make a type specimen book.
-                    </p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Ratione consectetur voluptates quasi. Doloremque natus illum sequi
+                    laboriosam dolorem provident sit molestiae est maxime asperiores sint,
+                         fugit eaque distinctio quibusdam earum?</p>
                 </div>
-                <div className="faq-line"></div>
-            </div>
-            <div className="question">
-                <h4>What product do you Offer?</h4>
+            </Toggle>
+            <Toggle title='What product do you Offer?'>
                 <div className="answer">
                     <p>Lorem Ipsum is simply dummy text.</p>
-                    <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the
-                        1500s, when an unknown printer took a galley of type and scrambled it to
-                        make a type specimen book.
-                    </p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Ratione consectetur voluptates quasi. Doloremque natus illum sequi
+                    laboriosam dolorem provident sit molestiae est maxime asperiores sint,
+                        fugit eaque distinctio quibusdam earum?</p>
                 </div>
-                <div className="faq-line"></div>
-            </div>
-            </Faq>
+            </Toggle>
+            </AnimateSharedLayout>
+        </Faq>
     )
 }
 const Faq = styled(About)`
@@ -77,11 +71,11 @@ h2{
     width:100% ;
 }
 .question{
-    padding:3rem 0rem;
+    padding:1rem 0rem;
     cursor: pointer;
 }
 .awser{
-    padding:2rem 0rem;
+    padding:1rem 0rem;
     p{
         padding:1rem 0rem;
     }
